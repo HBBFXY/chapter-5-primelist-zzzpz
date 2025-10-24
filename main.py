@@ -2,14 +2,11 @@ def PrimeList(N):
     if N <= 2:
         return ""
     primes = []
-    # 单独处理2（唯一的偶数质数）
-    if N > 2:
-        primes.append("2")
-    # 只遍历奇数（从3开始，步长为2）
-    for num in range(3, N, 2):
+    # 从2开始判断，2是质数
+    for num in range(2, N):
         is_prime = True
-        # 同样只判断奇数除数，减少循环次数
-        for i in range(3, int(num**0.5) + 1, 2):
+        # 优化：除数只需遍历到num的平方根
+        for i in range(2, int(num**0.5) + 1):
             if num % i == 0:
                 is_prime = False
                 break
