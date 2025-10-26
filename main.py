@@ -14,5 +14,7 @@ def PrimeList(N):
     primes = []
     for num in range(2, N):
         if is_prime(num):
-            primes.append(str(num))
-    return ' '.join(primes)
+            if num != 1:
+                primes.append(str(num))
+    result = ' '.join(primes)
+    return result
